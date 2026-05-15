@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Resultado Ejercicio 1{% endblock %}
+
+{% block content %}
+<section class="result-panel">
+    <h1>Resultado de la Compra</h1>
+    <div class="result-box">
+        <p><strong>Nombre:</strong> {{ resultado.nombre }}</p>
+        <p><strong>Edad:</strong> {{ resultado.edad }} anos</p>
+        <p><strong>Cantidad de tarros:</strong> {{ resultado.cantidad }}</p>
+        <p><strong>Valor por tarro:</strong> ${{ "{:,.0f}".format(resultado.precio_tarro).replace(",", ".") }}</p>
+        <p><strong>Total sin descuento:</strong> ${{ "{:,.0f}".format(resultado.total_sin_descuento).replace(",", ".") }}</p>
+        <p><strong>Descuento aplicado:</strong> {{ resultado.porcentaje_descuento }}%</p>
+        <p><strong>Monto descontado:</strong> ${{ "{:,.0f}".format(resultado.monto_descuento).replace(",", ".") }}</p>
+        <p class="total"><strong>Total a pagar:</strong> ${{ "{:,.0f}".format(resultado.total_pagar).replace(",", ".") }}</p>
+    </div>
+    <div class="result-actions">
+        <a class="secondary-button" href="{{ url_for('ejercicio1') }}">Nuevo calculo</a>
+        <a class="secondary-button" href="{{ url_for('index') }}">Menu principal</a>
+    </div>
+</section>
+{% endblock %}

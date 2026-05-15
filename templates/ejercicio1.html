@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Ejercicio 1{% endblock %}
+
+{% block content %}
+<section class="exercise-panel">
+    <h1>Calculo de compras</h1>
+    <form action="{{ url_for('ejercicio1') }}" method="post" class="form-card">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" value="{{ resultado.nombre if resultado else '' }}" required>
+
+        <label for="edad">Edad</label>
+        <input type="number" id="edad" name="edad" min="1" value="{{ resultado.edad if resultado else '' }}" required>
+
+        <label for="cantidad">Cantidad de tarros</label>
+        <input type="number" id="cantidad" name="cantidad" min="1" value="{{ resultado.cantidad if resultado else '' }}" required>
+
+        <button type="submit">Calcular</button>
+    </form>
+
+    {% if resultado %}
+    <div class="inline-result">
+        <p>Nombre del cliente: ${{ resultado.nombre }}</p>
+        <p>Total sin descuento: ${{ resultado.total_sin_descuento }}</p>
+        <p>El descuento es : ${{ resultado.monto_descuento }}.0</p>
+        <p>El total a pagar es de : ${{ resultado.total_pagar }}.0</p>
+    </div>
+    {% endif %}
+
+    <a class="back-link" href="{{ url_for('index') }}">Volver al menu</a>
+</section>
+{% endblock %}

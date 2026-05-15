@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Menu Principal{% endblock %}
+
+{% block content %}
+<section class="home-panel">
+    <h1>Menu Principal</h1>
+    <div class="menu-actions">
+        <a class="menu-button exercise-one" href="{{ url_for('ejercicio1') }}">Ejercicio 1</a>
+        <a class="menu-button exercise-two" href="{{ url_for('ejercicio2') }}">Ejercicio 2</a>
+    </div>
+</section>
+{% endblock %}
